@@ -1,0 +1,18 @@
+image_size: [400, 640]  # height, width
+
+import_dataset:
+  train_val_test_weights: [0.7, 0.2, 0.1] # Train/val/test split ratios (should add up to 1.0)
+
+# https://docs.ultralytics.com/modes/train/#train-settings
+train:
+  starting_model: yolo11n 
+  epochs: 100
+  batch_size: 0.6   # 0.6 means 60% of GPU memory is used
+  device: cpu       # device used for training 'cpu' or '0' or '0,1,2,3' etc.
+  degrees: 20.0
+  shear: 10.0
+
+# https://docs.ultralytics.com/modes/export/#export-formats
+model_export:
+  format: onnx
+  extension: .onnx

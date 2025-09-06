@@ -1,1 +1,0 @@
-To run the script use ./.venv/bin/python3 ./main.py
