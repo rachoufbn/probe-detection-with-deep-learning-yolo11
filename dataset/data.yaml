@@ -1,0 +1,8 @@
+# Using ultralytics autosplit function to split into train/val/test
+train: autosplit_train.txt 
+val: autosplit_val.txt 
+test: autosplit_test.txt 
+
+# Classes
+names:
+  0: probe
