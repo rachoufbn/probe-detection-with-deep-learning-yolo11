@@ -9,4 +9,8 @@ final_model_file_name = "final_model" + CONFIG["model_export"]["extension"]
 final_model_path = os.path.join(base_dir, final_model_file_name)
 
 model = YOLO(final_model_path)
-results = model.predict(input_image_folder_path, save=True)
+results = model.predict(
+    source=input_image_folder_path,
+    imgsz=CONFIG["image_size"],
+    save=True
+)

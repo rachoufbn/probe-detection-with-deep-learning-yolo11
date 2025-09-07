@@ -36,7 +36,10 @@ print(f"Exporting model: {selected_model_name} from {selected_model_path}")
 
 # Export to ONNX format
 model = YOLO(selected_model_path)
-model.export(format=CONFIG["model_export"]["format"], imgsz=tuple(CONFIG["image_size"]))
+model.export(
+    format=CONFIG["model_export"]["format"],
+    imgsz=CONFIG["image_size"]
+)
 
 # Move exported model to base directory with standard name
 old_exported_model_path = os.path.splitext(selected_model_path)[0] + CONFIG["model_export"]["extension"]

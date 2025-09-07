@@ -1,4 +1,5 @@
-image_size: [400, 640]  # height, width
+# Before being fed into the model images are padded to a square aspect ratio and shrunk/stretched to this size (px)
+image_size: 640
 
 import_dataset:
   train_val_test_weights: [0.7, 0.2, 0.1] # Train/val/test split ratios (should add up to 1.0)
