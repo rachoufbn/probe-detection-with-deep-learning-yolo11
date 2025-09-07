@@ -4,16 +4,23 @@ image_size: 640
 import_dataset:
   train_val_test_weights: [0.7, 0.2, 0.1] # Train/val/test split ratios (should add up to 1.0)
 
-# https://docs.ultralytics.com/modes/train/#train-settings
 train:
-  starting_model: yolo11n 
-  epochs: 100
-  batch_size: 0.6   # 0.6 means 60% of GPU memory is used
-  device: cpu       # device used for training 'cpu' or '0' or '0,1,2,3' etc.
-  degrees: 20.0
-  shear: 10.0
+  # Train Settings - https://docs.ultralytics.com/modes/train/#train-settings
+  starting_model: yolo11n # https://docs.ultralytics.com/models/yolo11/#performance-metrics
+  epochs: 100       # Default 100
+  patience: 50      # Default 100
+  batch_size: 16    # Default 16, can be lowered if you run into out-of-memory errors
+  cache: ram        # Default False, enables caching images for faster training (warning: large datasets may exceed system RAM)
+  device: cpu       # Device used for training (cpu/mps/0), please see docs for specifics. Leave null for auto-selection
+  workers: 2        # Default 8, should scale with system performance
+  # Augmentation Settings and Hyperparameters - https://docs.ultralytics.com/modes/train/#augmentation-settings-and-hyperparameters
+  degrees: 20.0     # Rotate images by +- x degrees
+  shear: 10.0       # Sheer images by +- x degrees
 
 # https://docs.ultralytics.com/modes/export/#export-formats
 model_export:
   format: onnx
   extension: .onnx
+
+inference:
+  confidence_threshold: 0.5 # Minimum confidence for displaying a detection bounding box

@@ -11,6 +11,8 @@ final_model_path = os.path.join(base_dir, final_model_file_name)
 model = YOLO(final_model_path)
 results = model.predict(
     source=input_image_folder_path,
+    device=CONFIG["train"]["device"],
     imgsz=CONFIG["image_size"],
+    conf=CONFIG["inference"]["confidence_threshold"],
     save=True
 )

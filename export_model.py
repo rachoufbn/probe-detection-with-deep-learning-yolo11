@@ -38,6 +38,7 @@ print(f"Exporting model: {selected_model_name} from {selected_model_path}")
 model = YOLO(selected_model_path)
 model.export(
     format=CONFIG["model_export"]["format"],
+    device=CONFIG["train"]["device"],
     imgsz=CONFIG["image_size"]
 )
 
