@@ -23,6 +23,7 @@ model.train(
     optimizer=CONFIG["train"]["optimizer"],
     degrees=CONFIG["train"]["degrees"],
     shear=CONFIG["train"]["shear"],
+    name='train',
     plots=True
 )
 
@@ -34,6 +35,7 @@ metrics_test = model.val(
     device=CONFIG["train"]["device"],
     workers=CONFIG["train"]["workers"],
     plots=True,
+    name='test',
     split='test'
 )
 print("\nTest metrics: ", metrics_test)
