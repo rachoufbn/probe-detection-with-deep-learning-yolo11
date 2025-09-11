@@ -7,6 +7,7 @@ def get_base_dir():
     base_dir = os.path.abspath(
         os.path.join(__file__, "../..")
     )
+    
     return base_dir
 
 def get_input_folder_path():
@@ -23,4 +24,5 @@ def get_input_folder_path():
 
     if not os.path.isdir(folder_path):
         raise Exception("Invalid folder path.")
+    
     return folder_path
