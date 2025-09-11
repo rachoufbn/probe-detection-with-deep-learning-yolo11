@@ -1,5 +1,13 @@
 .venv
 __pycache__/
+
+# Ignore dataset files except data.yaml
 dataset/*
 !dataset/data.yaml
+
+# Ignore training output directories
 runs/
+
+# Ignore trained model files
+final_model.*
+yolo*.pt
