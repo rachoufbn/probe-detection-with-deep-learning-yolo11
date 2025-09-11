@@ -20,6 +20,7 @@ model.train(
     cache=CONFIG["train"]["cache"],
     device=CONFIG["train"]["device"],
     workers=CONFIG["train"]["workers"],
+    optimizer=CONFIG["train"]["optimizer"],
     degrees=CONFIG["train"]["degrees"],
     shear=CONFIG["train"]["shear"],
     plots=True

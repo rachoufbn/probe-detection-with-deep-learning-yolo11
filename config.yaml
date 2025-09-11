@@ -13,6 +13,7 @@ train:
   cache: ram        # Default False, enables caching images for faster training (warning: large datasets may exceed system RAM)
   device: cpu       # Device used for training (cpu/mps/0), please see docs for specifics. Leave null for auto-selection
   workers: 2        # Default 8, should scale with system performance
+  optimizer: auto   # Options: SGD, Adam, AdamW, NAdam, RAdam, RMSProp or auto (default)
   # Augmentation Settings and Hyperparameters - https://docs.ultralytics.com/modes/train/#augmentation-settings-and-hyperparameters
   degrees: 20.0     # Rotate images by +- x degrees
   shear: 10.0       # Sheer images by +- x degrees
