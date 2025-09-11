@@ -10,7 +10,7 @@ data_yaml_path = os.path.join(dataset_folder_path, "data.yaml")
 # Load a pretrained backbone
 model = YOLO(CONFIG["train"]["starting_model"])
 
-# Train on custom dataset
+# Train on custom dataset (uses train and val splits in data.yaml)
 model.train(
     data=data_yaml_path,
     epochs=CONFIG["train"]["epochs"],
@@ -27,8 +27,10 @@ model.train(
     plots=True
 )
 
+print("Evaluating model on test split...")
+
 # Test on the test split
-metrics_test = model.val(
+test_metrics = model.val(
     data=data_yaml_path,
     imgsz=CONFIG["image_size"],
     batch=CONFIG["train"]["batch_size"],
@@ -38,4 +40,11 @@ metrics_test = model.val(
     name='test',
     split='test'
 )
-print("\nTest metrics: ", metrics_test)
+
+print("\nTest Metrics: ", test_metrics.results_dict)
+
+precision = test_metrics.results_dict["metrics/precision(B)"]
+recall = test_metrics.results_dict["metrics/recall(B)"]
+
+F1 = 2 * ((precision * recall) / (precision + recall)) if (precision + recall) > 0 else 0
+print(f"F1 Score: {F1}")
