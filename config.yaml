@@ -7,7 +7,7 @@ import_dataset:
 train:
   # Train Settings - https://docs.ultralytics.com/modes/train/#train-settings
   starting_model: yolo11n # https://docs.ultralytics.com/models/yolo11/#performance-metrics
-  epochs: 100       # Default 100
+  epochs: 250       # Default 100
   patience: 50      # Default 100
   batch_size: 16    # Default 16, can be lowered if you run into out-of-memory errors
   cache: ram        # Default False, enables caching images for faster training (warning: large datasets may exceed system RAM)
